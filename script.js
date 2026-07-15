@@ -12,7 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const age = parseInt(ageInput.value);
         
         if (isNaN(age) || age === 0) {
-            alert('Please enter your age! 🎂');
+            // Shake the input field if empty
+            ageInput.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                ageInput.style.animation = '';
+            }, 500);
             return;
         }
         
@@ -28,8 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 10);
             }, 500);
         } else {
-            // Wrong answer! Redirect to YouTube
-            alert('Oops! Wrong age! 😅 Redirecting...');
+            // Wrong answer! Redirect to YouTube directly
             window.location.href = redirectURL;
         }
     });

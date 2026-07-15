@@ -1,4 +1,46 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Age Verification Logic
+    const ageVerification = document.getElementById('ageVerification');
+    const ageInput = document.getElementById('ageInput');
+    const verifyBtn = document.getElementById('verifyBtn');
+    const startOverlay = document.getElementById('startOverlay');
+    
+    // YouTube redirect URL (you can change this)
+    const redirectURL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Change this to your YouTube video
+    
+    verifyBtn.addEventListener('click', function() {
+        const age = parseInt(ageInput.value);
+        
+        if (isNaN(age) || age === 0) {
+            alert('Please enter your age! 🎂');
+            return;
+        }
+        
+        if (age === 21) {
+            // Correct answer! Show start celebration
+            ageVerification.style.opacity = '0';
+            setTimeout(() => {
+                ageVerification.style.display = 'none';
+                startOverlay.style.display = 'flex';
+                startOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    startOverlay.style.opacity = '1';
+                }, 10);
+            }, 500);
+        } else {
+            // Wrong answer! Redirect to YouTube
+            alert('Oops! Wrong age! 😅 Redirecting...');
+            window.location.href = redirectURL;
+        }
+    });
+    
+    // Allow Enter key to submit
+    ageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            verifyBtn.click();
+        }
+    });
+
     const candlesContainer = document.getElementById('candles');
     const blowArea = document.getElementById('blowArea');
 

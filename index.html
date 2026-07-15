@@ -9,8 +9,19 @@
 </head>
 
 <body>
+    <!-- Age Verification Overlay -->
+    <div id="ageVerification" class="age-verification">
+        <div class="age-card">
+            <h1>🎂 Birthday Verification 🎂</h1>
+            <p>How old are you turning today?</p>
+            <input type="number" id="ageInput" placeholder="Enter your age" class="age-input" min="1" max="120">
+            <button id="verifyBtn" class="verify-button">Submit</button>
+            <p class="hint-text">Hint: You're officially an adult! 😉</p>
+        </div>
+    </div>
+
     <!-- Start Button Overlay -->
-    <div id="startOverlay" class="start-overlay">
+    <div id="startOverlay" class="start-overlay" style="display: none;">
         <div class="start-content">
             <h1>21 kana?</h1>
             <p>Click nga lablab :></p>
